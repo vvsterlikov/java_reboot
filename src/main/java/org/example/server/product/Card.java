@@ -50,7 +50,7 @@ public class Card {
     public Account getAccount(int indx) {
         if (accounts.size() <= indx) {
             throw new AccountNotFoundException();
-            //подумать except или optional и запушить в две разные ветки
+            //подумать exception или optional и запушить в две разные ветки
         }
         //Optional.empty().orElseThrow(()-> new RuntimeException());
         return accounts.get(indx);

@@ -4,6 +4,11 @@ public class Balance {
     private int sum;
     private String currency;
 
+    public Balance() {
+        this.sum = 0;
+        this.currency = "";
+    }
+
     public Balance(int sum, String currency) {
         this.sum = sum;
         this.currency = currency;
@@ -12,6 +17,7 @@ public class Balance {
     public int getSum() {
         return sum;
     }
+
 
     public String getCurrency() {
         return currency;
