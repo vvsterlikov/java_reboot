@@ -1,10 +1,9 @@
 package org.example.server.product;
 
-import org.example.interaction.AccountNotFoundException;
-
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class Card {
     private List<Account> accounts = new ArrayList<>();
@@ -19,41 +18,12 @@ public class Card {
         this.PIN = PIN;
     }
 
-    /*
-        public Optional<Account> getAccount(int indx) {
-            Optional<Account> account = Optional.empty();
-            try {
-                account = Optional.ofNullable(accounts.get(indx));
-            }
-            catch (IndexOutOfBoundsException outOfBoundException) {
-                //log.error("12);
-            } finally {
 
-            }
-            return account;
-        }
-
-     */
-  /*  public Account getAccount(int indx) {
-        Account account = new Account(new Balance(1,"USD"));
-        try {
-            account = accounts.get(indx);
-        }
-        catch (IndexOutOfBoundsException outOfBoundException) {
-            //log.error("12);
-        } finally {
-
-        }
-        return account;
-    }
-*/
-    public Account getAccount(int indx) {
+    public Optional<Account> getAccount(int indx) {
         if (accounts.size() <= indx) {
-            throw new AccountNotFoundException();
-            //подумать except или optional и запушить в две разные ветки
+            return Optional.empty();
         }
-        //Optional.empty().orElseThrow(()-> new RuntimeException());
-        return accounts.get(indx);
+        return Optional.of(accounts.get(indx));
 
     }
 

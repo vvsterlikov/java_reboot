@@ -1,9 +1,9 @@
 package org.example.server;
 
+import org.example.interaction.AccountNotFoundException;
 import org.example.interaction.Request;
 import org.example.interaction.Response;
 import org.example.interaction.ValidateException;
-import org.example.server.product.AccountTypes;
 import org.example.server.product.Card;
 
 import java.util.Map;
@@ -25,7 +25,8 @@ public class Host {
             return new Response(e.getCode(), e.getDesc());
         }
 
-        return new Response(cards.get(request.getNumber()).getAccount(AccountTypes.DEFAULT.ordinal()).getBalance());
+        return new Response(cards.get(request.getNumber()).getAccount(0).orElseThrow(() -> new AccountNotFoundException()).getBalance());
+        //AccountTypes.DEFAULT.ordinal()
     }
 
     private void validate(Request request) throws ValidateException {
