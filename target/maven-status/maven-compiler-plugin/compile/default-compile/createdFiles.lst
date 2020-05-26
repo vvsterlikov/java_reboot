@@ -1,13 +1,5 @@
 org\example\client\ATM.class
-org\example\client\Client.class
-org\example\interaction\Response.class
-org\example\server\Host.class
-org\example\main.class
-org\example\interaction\ValidateException.class
-org\example\client\Operation.class
-org\example\interaction\Request.class
 org\example\interaction\AccountNotFoundException.class
+org\example\interaction\BalancePayload.class
+org\example\interaction\XMLParser.class
 org\example\server\product\Balance.class
-org\example\server\product\AccountTypes.class
-org\example\server\product\Account.class
-org\example\server\product\Card.class

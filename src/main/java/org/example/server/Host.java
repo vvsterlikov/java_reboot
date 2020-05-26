@@ -24,7 +24,7 @@ public class Host {
             e.printStackTrace();
             return new Response(e.getCode(), e.getDesc());
         }
-
+        //todo: заменить код с учетом нового формата
         return new Response(cards.get(request.getNumber()).getAccount(0).orElseThrow(() -> new AccountNotFoundException()).getBalance());
         //AccountTypes.DEFAULT.ordinal()
     }
