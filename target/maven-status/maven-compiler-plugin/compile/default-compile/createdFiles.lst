@@ -1,5 +1,0 @@
-org\example\client\ATM.class
-org\example\interaction\AccountNotFoundException.class
-org\example\interaction\BalancePayload.class
-org\example\interaction\XMLParser.class
-org\example\server\product\Balance.class
