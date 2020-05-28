@@ -7,20 +7,23 @@ import com.fasterxml.jackson.module.jaxb.JaxbAnnotationIntrospector;
 
 
 public class JSONParser implements Parser {
-    @Override
-    public String saveObject(Object payload) throws JsonProcessingException {
-        ObjectMapper mapper = new ObjectMapper();
+    private ObjectMapper mapper;
+
+    public JSONParser() {
+        this.mapper = new ObjectMapper();
         AnnotationIntrospector introspector = new JaxbAnnotationIntrospector(); //deprecated
         mapper.setAnnotationIntrospector(introspector);
+
+    }
+
+    @Override
+    public String saveObject(Object payload) throws JsonProcessingException {
         return mapper.writeValueAsString(payload);
 
     }
 
     @Override
     public Object getObject(String payload, Class clazz) throws JsonProcessingException {
-        ObjectMapper mapper = new ObjectMapper();
-        AnnotationIntrospector introspector = new JaxbAnnotationIntrospector(); //deprecated
-        mapper.setAnnotationIntrospector(introspector);
         return mapper.readValue(payload, clazz);
 
 

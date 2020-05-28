@@ -25,6 +25,8 @@ public class XMLParser implements Parser {
 
     }
     */
+    //private JAXBContext context;
+
     @Override
     public Object getObject(String xmlString, Class c) throws JAXBException {
         JAXBContext context = JAXBContext.newInstance(c); //не нужно если не static
